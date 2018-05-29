@@ -192,7 +192,7 @@ class PL_l3fwd(PL_new):
         super(PL_l3fwd, self).__init__(parent, conf)
         self.p4_source = 'examples/l3fwd.p4'
         self.p4_version = 'v14'
-        self.cont_config = t4p4s_conf_smgw
+        self.cont_config = t4p4s_conf_l3fwd
         self.controller = 'dpdk_l3fwd_controller'
 
     def config_switch(self):
