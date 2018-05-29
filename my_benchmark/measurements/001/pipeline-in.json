@@ -1,0 +1,17 @@
+{
+    "bst": 5,
+    "core": 1,
+    "downlink-default-gw-ip": "200.0.0.222",
+    "downlink-default-gw-mac": "aa:22:bb:44:cc:67",
+    "fakedrop": true,
+    "fluct-server": 0,
+    "fluct-user": 0,
+    "gw-ip": "200.0.0.1",
+    "gw-mac": "aa:22:bb:44:cc:66",
+    "handover": 0,
+    "name": "mgw",
+    "nhop": 2,
+    "rate-limit": 10000,
+    "server": 2,
+    "user": 5
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/jenkins/tipsy16-new/t4p4s/tipsy.py", line 315, in <module>
+    Tipsy().configure()
+  File "/home/jenkins/tipsy16-new/t4p4s/tipsy.py", line 303, in configure
+    self.pl.config_switch()
+  File "/home/jenkins/tipsy16-new/t4p4s/tipsy.py", line 245, in config_switch
+    for nhg in self.conf.downstream_group_table:
+  File "/home/jenkins/tipsy16-new/t4p4s/../lib/object_with_config.py", line 29, in __getattr__
+    return self.__dict__[name.replace('_', '-')]
+KeyError: 'downstream-group-table'
+Connection to dpdk-switch closed.

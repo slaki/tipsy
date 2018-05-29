@@ -1,0 +1,61 @@
+{
+    "pipeline": {
+        "bst": 5,
+        "core": 1,
+        "downlink-default-gw-ip": "200.0.0.222",
+        "downlink-default-gw-mac": "aa:22:bb:44:cc:67",
+        "fakedrop": true,
+        "fluct-server": 0,
+        "fluct-user": 0,
+        "gw-ip": "200.0.0.1",
+        "gw-mac": "aa:22:bb:44:cc:66",
+        "handover": 0,
+        "name": "mgw",
+        "nhop": 2,
+        "rate-limit": 10000,
+        "server": 2,
+        "user": 5
+    },
+    "scale": "none",
+    "sut": {
+        "bess-dir": "/opt/bess",
+        "coremask": "0x0f0f",
+        "downlink-port": "0000:0b:00.1",
+        "downlink-vpp-interface": "FortyGigabitEthernet8/0/1",
+        "erfs-dir": "/opt/erfs",
+        "hostname": "dpdk-switch",
+        "portmask": "0x3",
+        "setup-script": "",
+        "t4p4s-dir": "/home/jenkins/t4p4s16/t4p4s-16",
+        "teardown-script": "",
+        "tipsy-dir": "/home/jenkins/tipsy16-new",
+        "type": "t4p4s",
+        "uplink-port": "0000:0b:00.0",
+        "uplink-vpp-interface": "FortyGigabitEthernet8/0/0"
+    },
+    "tester": {
+        "core": 1,
+        "downlink-port": "0000:0b:00.0",
+        "moongen-cmd": "/home/jenkins/MoonGen/build/MoonGen",
+        "setup-script": "",
+        "teardown-script": "",
+        "test-time": 30,
+        "type": "moongen",
+        "uplink-port": "0000:0b:00.1"
+    },
+    "traffic": {
+        "ascii": false,
+        "conf": "pipeline.json",
+        "dir": "downlink",
+        "json": null,
+        "output": "/dev/stdout",
+        "pkt-num": 10,
+        "pkt-size": 64,
+        "random-seed": 1,
+        "thread": 0,
+        "trace-generator-cmd": "/opt/trace_generator/trace_generator",
+        "trace-generator-pareto-a": 0.5,
+        "trace-generator-pareto-b": 0.5,
+        "trace-generator-scale": 1
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "bsts": [
+        {
+            "id": 0,
+            "ip": "1.1.0.1",
+            "mac": "aa:cc:dd:cc:00:01",
+            "port": null
+        },
+        {
+            "id": 1,
+            "ip": "1.1.0.2",
+            "mac": "aa:cc:dd:cc:00:02",
+            "port": null
+        },
+        {
+            "id": 2,
+            "ip": "1.1.0.3",
+            "mac": "aa:cc:dd:cc:00:03",
+            "port": null
+        },
+        {
+            "id": 3,
+            "ip": "1.1.0.4",
+            "mac": "aa:cc:dd:cc:00:04",
+            "port": null
+        },
+        {
+            "id": 4,
+            "ip": "1.1.0.5",
+            "mac": "aa:cc:dd:cc:00:05",
+            "port": null
+        }
+    ],
+    "core": 1,
+    "fakedrop": true,
+    "gw": {
+        "default_gw": {
+            "ip": "200.0.0.222",
+            "mac": "aa:22:bb:44:cc:67"
+        },
+        "ip": "200.0.0.1",
+        "mac": "aa:22:bb:44:cc:66"
+    },
+    "name": "mgw",
+    "nhops": [
+        {
+            "dmac": "aa:bb:bb:aa:00:01",
+            "port": null,
+            "smac": "ee:dd:dd:aa:00:01"
+        },
+        {
+            "dmac": "aa:bb:bb:aa:00:02",
+            "port": null,
+            "smac": "ee:dd:dd:aa:00:02"
+        }
+    ],
+    "run_time": [],
+    "srvs": [
+        {
+            "ip": "2.0.1.2",
+            "nhop": 0,
+            "prefix_len": 24
+        },
+        {
+            "ip": "2.0.2.2",
+            "nhop": 1,
+            "prefix_len": 24
+        }
+    ],
+    "users": [
+        {
+            "ip": "3.3.0.1",
+            "rate_limit": 10000,
+            "teid": 1,
+            "tun_end": 0
+        },
+        {
+            "ip": "3.3.0.2",
+            "rate_limit": 10000,
+            "teid": 2,
+            "tun_end": 1
+        },
+        {
+            "ip": "3.3.0.3",
+            "rate_limit": 10000,
+            "teid": 3,
+            "tun_end": 2
+        },
+        {
+            "ip": "3.3.0.4",
+            "rate_limit": 10000,
+            "teid": 4,
+            "tun_end": 3
+        },
+        {
+            "ip": "3.3.0.5",
+            "rate_limit": 10000,
+            "teid": 5,
+            "tun_end": 4
+        }
+    ]
+}

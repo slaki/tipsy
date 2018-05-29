@@ -29,6 +29,8 @@ import scapy
 import sys
 import traceback
 from itertools import izip, chain, repeat
+from scapy.contrib.gtp import *
+
 try:
     from pathlib import PosixPath
 except ImportError:
@@ -246,8 +248,9 @@ class GenPkt_mgw(GenPkt):
         p = (
             Ether(src=bst.mac, dst=gw.mac, type=0x0800) /
             IP(src=bst.ip, dst=gw.ip) /
-            UDP(sport=4789, dport=4789) /
-            VXLAN(vni=user.teid, flags=0x08) /
+            UDP(sport=2152, dport=2152) /
+            #VXLAN(vni=user.teid, flags=0x08) /
+            GTPHeader(teid=user.teid, version=1) /
             Ether(dst=gw.mac, type=0x0800) /
             IP(src=user.ip, dst=server.ip) /
             proto()
@@ -385,7 +388,7 @@ def gen_pcap(*defaults):
     if args.ascii:
         print("Dumping packets:")
     else:
-        args.pcap_file = PcapWriter(args.output)
+        args.pcap_file = PcapWriter(args.output.name)
 
     processes = []
     for i in range(worker_num):

@@ -1,0 +1,49 @@
+tipsy=/home/jenkins/tipsy16-new/tipsy
+m_dir := $(sort $(wildcard measurements/[0-9][0-9][0-9]))
+results := $(foreach dir,$(m_dir),$(dir)/results.json)
+p_dir := $(sort $(wildcard plots/[0-9][0-9][0-9]))
+plots := $(foreach dir,$(p_dir),$(dir)/out.json)
+
+.PHONY: all plots
+
+all: measurements/result.json plots
+
+plots: $(plots) plots/fig.pdf
+
+$(plots): measurements/result.json
+	$(MAKE) -C $(dir $@)
+
+.ONESHELL:
+plots/fig.pdf: $(plots) plots/fig.tex
+ifneq ($(plots),)
+	cd plots
+	pdflatex -shell-escape fig.tex
+else
+	@echo No figs to generate
+endif
+
+plots/fig.tex: .tipsy.json
+
+.ONESHELL:
+measurements/result.json: $(results)
+	@sep=""
+	echo '[' > $@
+	for r in $(results); do
+	  echo $$sep >> $@
+	  cat $$r >> $@
+	  sep=","
+	done
+	echo ']' >> $@
+
+$(results): .tipsy.json
+	$(MAKE) -C $(dir $@) || exit
+
+.tipsy.json: *.json
+	@echo '$@ is older than: $?'
+	echo 'to regenerate the file, run:'
+	echo '   $(tipsy) config $^'
+	echo 'or'
+	echo '   $(tipsy) config -f $^'
+	echo 'to ignore this warning, run:'
+	echo '   touch $@; make'
+	false
