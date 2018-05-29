@@ -46,7 +46,7 @@
     "traffic": {
         "ascii": false,
         "conf": "pipeline.json",
-        "dir": "downlink",
+        "dir": "uplink",
         "json": null,
         "output": "/dev/stdout",
         "pkt-num": 10,
