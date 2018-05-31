@@ -228,7 +228,7 @@ class GenPkt_mgw(GenPkt):
         gw = self.conf.gw
         server = random.choice(self.conf.srvs)
         user = random.choice(self.conf.users)
-        proto = random.choice([TCP, UDP])
+        proto = random.choice([TCP]) #, UDP])
         if 'd' == direction:
             return self.gen_dl_pkt(pkt_size, proto, gw, server, user)
         elif 'u' == direction:
@@ -251,7 +251,7 @@ class GenPkt_mgw(GenPkt):
             UDP(sport=2152, dport=2152) /
             #VXLAN(vni=user.teid, flags=0x08) /
             GTPHeader(teid=user.teid, version=1) /
-            Ether(dst=gw.mac, type=0x0800) /
+            #Ether(dst=gw.mac, type=0x0800) /
             IP(src=user.ip, dst=server.ip) /
             proto()
         )
